@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moldura de Apoio — Professora Mariene 4431</title>
+<meta name="description" content="Coloque sua foto na moldura oficial de apoio à Professora Mariene 4431 em poucos segundos, direto no navegador.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moldura de Apoio — Professora Mariene 4431">
+<meta property="og:description" content="Envie sua foto e baixe pronta com a moldura oficial de apoio à campanha.">
+<meta property="og:image" content="img/moldura-apoio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<video class="bg-video" autoplay muted loop playsinline poster="img/videos/hero-poster.jpg" aria-hidden="true">
+  <source src="img/videos/hero-4431-mobile.mp4" media="(max-width: 768px)" type="video/mp4">
+  <source src="img/videos/hero-4431.mp4" type="video/mp4">
+</video>
+<div class="bg-video-overlay" aria-hidden="true"></div>
+
+<header class="topo">
+  <img src="img/logo-branco.png" alt="Professora Mariene 4431">
+</header>
+
+<main>
+  <section class="container moldura-bloco">
+    <div class="moldura-texto">
+      <span class="eyebrow">Moldura de apoio</span>
+      <h1>Mostre seu apoio nas redes</h1>
+      <p>Envie uma foto sua, a gente aplica a moldura oficial da campanha na hora — direto no navegador, sem enviar sua foto pra nenhum servidor — e você baixa pronta pra colocar como foto de perfil.</p>
+      <fieldset class="moldura-opcoes">
+        <legend>Escolha a moldura</legend>
+        <label class="moldura-opcao">
+          <input type="radio" name="moldura-tipo" value="mariene" checked>
+          <span>Professora Mariene <strong>4431</strong></span>
+        </label>
+        <label class="moldura-opcao">
+          <input type="radio" name="moldura-tipo" value="heleno">
+          <span>Mariene <strong>4431</strong> + Heleno do Hospital <strong>45.500</strong></span>
+        </label>
+      </fieldset>
+      <div class="moldura-acoes">
+        <label class="btn btn-amarelo" for="moldura-input">Enviar minha foto</label>
+        <input type="file" id="moldura-input" accept="image/*" hidden>
+        <a id="moldura-download" class="btn btn-outline" download="mariene-4431-apoio.png">Baixar minha foto</a>
+      </div>
+      <p class="moldura-aviso" id="moldura-aviso">Nenhuma foto sai do seu navegador — tudo acontece localmente.</p>
+      <p class="moldura-aviso" id="moldura-aviso-ios" hidden>No iPhone: toque em "Abrir foto pra salvar", depois segure a imagem que abrir na tela e toque em "Adicionar à Galeria".</p>
+    </div>
+    <div class="moldura-preview">
+      <canvas id="moldura-canvas" width="1080" height="1080" aria-label="Pré-visualização da moldura de apoio com a foto enviada"></canvas>
+      <p class="moldura-dica" id="moldura-dica" hidden>Arraste a foto pra reposicionar</p>
+      <div class="moldura-ajuste" id="moldura-ajuste" hidden>
+        <label for="moldura-zoom">Zoom</label>
+        <input type="range" id="moldura-zoom" min="100" max="250" value="100" step="1">
+        <button type="button" id="moldura-reset" class="moldura-reset">Centralizar</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p>Professora Mariene 4431 — Deputada Federal · União Brasil. Material de campanha eleitoral.</p>
+  <p class="rodape-cnpj">CNPJ 68.468.155/0001-90<span class="rodape-razao">Professora Mariene Deputada Federal</span></p>
+</footer>
+
+<script src="js/moldura.js"></script>
+</body>
+</html>

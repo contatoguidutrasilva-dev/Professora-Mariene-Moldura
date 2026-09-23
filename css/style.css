@@ -1,0 +1,347 @@
+@font-face {
+  font-family: "Aeonik";
+  src: url("../fonts/Aeonik-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("../fonts/Aeonik-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("../fonts/Aeonik-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("../fonts/Aeonik-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --azul: #2D4FFB;
+  --azul-profundo: #011FAA;
+  --amarelo: #F7E335;
+  --branco: #FFFFFF;
+  --texto-escuro: #0A1440;
+  --max-width: 720px;
+  --sombra: 0 12px 30px rgba(1, 31, 170, 0.25);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Aeonik", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  color: var(--branco);
+  background: linear-gradient(160deg, var(--azul) 0%, var(--azul-profundo) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- Vídeo de fundo (mesmo clipe do hero do site principal) ---------- */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.bg-video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(160deg, rgba(45, 79, 251, 0.78) 0%, rgba(1, 31, 170, 0.88) 100%);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-video { display: none; }
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+h1 {
+  font-family: "Aeonik", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+}
+
+p { line-height: 1.6; font-size: 1.05rem; margin: 0 0 16px; }
+
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  color: var(--amarelo);
+}
+
+/* ---------- Topo ---------- */
+.topo {
+  padding: 36px 0 8px;
+  text-align: center;
+}
+.topo img { height: 56px; width: auto; margin: 0 auto; }
+
+/* ---------- Botões ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Aeonik", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 16px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px) scale(1.02); }
+.btn:active { transform: translateY(0) scale(0.98); }
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg) translateX(0%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+.btn:hover::after { transform: skewX(-20deg) translateX(475%); }
+@media (prefers-reduced-motion: reduce) {
+  .btn::after { transition: none; }
+}
+
+.btn-amarelo {
+  background: var(--amarelo);
+  color: var(--azul-profundo);
+  box-shadow: var(--sombra);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--branco);
+  border: 2px solid var(--branco);
+}
+
+/* ---------- Ferramenta da moldura ---------- */
+.moldura-bloco {
+  padding: 24px 0 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+.moldura-texto { max-width: 560px; }
+
+.moldura-opcoes {
+  border: 0;
+  margin: 8px 0 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.moldura-opcoes legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  color: var(--amarelo);
+}
+.moldura-opcao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.moldura-opcao:hover { border-color: rgba(255, 255, 255, 0.55); }
+.moldura-opcao strong { color: var(--amarelo); }
+.moldura-opcao input {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: var(--amarelo);
+  margin: 0;
+}
+.moldura-opcao:has(input:checked) {
+  border-color: var(--amarelo);
+  background: rgba(247, 227, 53, 0.12);
+}
+
+.moldura-acoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.moldura-acoes label.btn { cursor: pointer; }
+#moldura-input { display: none; }
+#moldura-download {
+  color: var(--branco);
+  border-color: var(--branco);
+  display: none;
+}
+#moldura-download.pronto { display: inline-flex; }
+.moldura-aviso {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+.moldura-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+#moldura-canvas {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  filter: drop-shadow(0 18px 34px rgba(1, 31, 170, 0.35));
+  touch-action: none;
+  cursor: default;
+}
+.moldura-dica {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--branco);
+  opacity: 0.65;
+}
+.moldura-ajuste {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+}
+.moldura-ajuste[hidden] { display: none; }
+.moldura-ajuste label {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--branco);
+  opacity: 0.85;
+  white-space: nowrap;
+}
+.moldura-ajuste input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  display: block;
+  width: auto;
+  padding: 0;
+  border: none;
+}
+.moldura-ajuste input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--amarelo);
+  border: 2px solid var(--branco);
+  cursor: pointer;
+}
+.moldura-ajuste input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--amarelo);
+  border: 2px solid var(--branco);
+  cursor: pointer;
+}
+.moldura-reset {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--amarelo);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.moldura-reset:hover { text-decoration: underline; }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  margin-top: 12px;
+  padding: 20px 20px 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+.rodape p { margin: 0 0 6px; }
+.rodape p:last-child { margin-bottom: 0; }
+.rodape a { text-decoration: underline; }
+.rodape-razao {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
